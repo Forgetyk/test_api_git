@@ -9,4 +9,4 @@ def get_status(repo, path):
         return 'don''t care'
 repo = git.Repo('')
 t = repo.head.commit.tree
-print(repo.git.diff(t, "--name-only"))
+print(repo.git.diff('HEAD~1', '--name-only'))
