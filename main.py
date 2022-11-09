@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 # This is a sample Python script.
 
 # Press Shift+F10 to execute it or replace it with your code.
@@ -12,3 +13,14 @@ def new_func(task):
     print("new")
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
+=======
+from git import Repo
+def get_status(repo, path):
+    changed = [ item.a_path for item in repo.index.diff(None) ]
+    if path in repo.untracked_files:
+        return 'untracked'
+    elif path in changed:
+        return 'modified'
+    else:
+        return 'don''t care'
+>>>>>>> Stashed changes
