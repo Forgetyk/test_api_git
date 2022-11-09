@@ -6,7 +6,7 @@
 
 def print_hi(name):
     # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name} выфвфы HOTFIX')  # Press Ctrl+F8 to toggle the breakpoint.
+    print(f'Hi, {name} выфвфы HOTFIXaaa')  # Press Ctrl+F8 to toggle the breakpoint.
 
 def new_func(task):
     print("new")
