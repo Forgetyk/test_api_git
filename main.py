@@ -13,6 +13,7 @@ def init():
             for line in file:
                 if re.fullmatch(r"^\S+:", line):
                     vars.append(line[:-2])
+    print(vars)
     for root, dir, files in os.walk(f"{main_dir}/roles"):
         for file in files:
             if file[-4:] != "yaml" or file[-3:] != "yml":
