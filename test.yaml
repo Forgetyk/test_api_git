@@ -1,0 +1,6 @@
+---
+- name: test
+  hosts: ab
+  become: yes
+  roles:
+    - a

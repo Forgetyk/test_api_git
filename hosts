@@ -1,0 +1,9 @@
+---
+all:
+   children:
+     prodction:
+       hosts:
+         ab:
+           ansible_host: 51.250.79.39
+         ac:
+           ansible_host: 51.250.79.39
