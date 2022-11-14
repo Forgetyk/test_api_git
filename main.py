@@ -7,6 +7,7 @@ import git
 def init():
     vars = []
     roles = []
+    playbooks = {}
     for file in list_changed:
         with open(f"{main_dir}/{file}", mode="r", encoding="utf-8") as file:
             for line in file:
@@ -24,7 +25,10 @@ def init():
         if file[-4:] != "yaml" or file[-3:] != "yml":
             continue
         with open(f"{main_dir}/{file}", mode="r", encoding="utf-8") as playbook:
-
+            for role in roles:
+                if role in playbook:
+                    playbooks[playbook].append(role)
+    print(playbooks)
 
 
 if __name__ == '__main__':
