@@ -1,6 +1,6 @@
 ---
 - name: TEST
-  shell: "touch {{test1.c}}"
+  shell: "touch {{test2.c}}"
 
 - name: inc
   include_tasks: test.yaml
