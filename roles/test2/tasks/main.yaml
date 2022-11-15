@@ -1,0 +1,9 @@
+---
+- name: TEST
+  shell: "touch {{test1.c}}"
+
+- name: inc
+  include_tasks: test.yaml
+
+#- name: inc2
+#  include_tasks: test2.yaml

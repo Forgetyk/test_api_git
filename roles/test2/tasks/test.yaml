@@ -1,0 +1,3 @@
+---
+- name: TEST
+  shell: "touch {{test1.c}}"
