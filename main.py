@@ -45,6 +45,7 @@ def init():
                     for host in hosts:
                         print(f"  {host}")
 
+
 if __name__ == '__main__':
     global list_changed
     global main_dir
