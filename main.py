@@ -16,7 +16,7 @@ def init():
             for line in file:
                 if re.fullmatch(r"^\S+:\n", line):
                     vars.append(line[:-2])
-    for root, dir, files in os.walk(f"{main_dir}\\roles"):
+    for root, dir, files in os.walk(f"{main_dir}/roles"):
         for file in files:
             if file[-4:] != "yaml" and file[-3:] != "yml":
                 continue
@@ -30,16 +30,20 @@ def init():
             continue
         with open(f"{main_dir}/{file}", mode="r", encoding="utf-8") as playbook:
             tmp = []
-            roles_list_file = yaml.safe_load(playbook)[0]["roles"]
             for role in roles:
-                if role in roles_list_file:
+                if role in yaml.safe_load(playbook)[0]["roles"]:
                     tmp.append(role)
             playbooks[str(file)] = tmp
     for key in playbooks.keys():
-        with open(f"{main_dir}/{key}", 'r') as stream:
-            data_loaded = yaml.safe_load(stream)
-            print(f"{key}: {data_loaded[0]['hosts']}")
-
+        if re.search(r"git", key) is None:
+            with open(f"{main_dir}/{key}", 'r') as stream:
+                hosts = yaml.safe_load(stream)[0]["hosts"]
+                if type(hosts) == str:
+                    print(f"{key}:\n  {hosts}")
+                else:
+                    print(f"{key}:\n")
+                    for host in hosts:
+                        print(f"  {host}")
 
 if __name__ == '__main__':
     global list_changed
@@ -49,5 +53,4 @@ if __name__ == '__main__':
     if len(list_changed) == 0:
         print("no modified files found")
         sys.exit(1)
-    if sys.argv[1] == "--init":
-        init()
+    init()
