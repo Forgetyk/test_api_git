@@ -30,6 +30,8 @@ def init():
             continue
         with open(f"{main_dir}\\{file}", mode="r", encoding="utf-8") as playbook:
             tmp = []
+            if len(roles) == 0:
+                break
             for role in roles:
                 if role in yaml.safe_load(playbook)[0]["roles"]:
                     tmp.append(role)
@@ -50,8 +52,7 @@ if __name__ == '__main__':
     global list_changed
     global main_dir
     main_dir = "\\".join(os.path.abspath(__file__).split("\\")[:-1])
-    list_changed = git.Repo('').git.diff('HEAD~1', '--name-only').split("\n")
-    print(list_changed)
+    list_changed = git.Repo('').git.diff('HEAD~0', '--name-only').split("\n")
     if len(list_changed) == 0:
         print("no modified files found")
         sys.exit(1)
