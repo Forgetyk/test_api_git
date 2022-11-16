@@ -51,6 +51,7 @@ if __name__ == '__main__':
     global main_dir
     main_dir = "\\".join(os.path.abspath(__file__).split("\\")[:-1])
     list_changed = git.Repo('').git.diff('HEAD~1', '--name-only').split("\n")
+    print(list_changed)
     if len(list_changed) == 0:
         print("no modified files found")
         sys.exit(1)
