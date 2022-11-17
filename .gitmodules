@@ -1,0 +1,6 @@
+[submodule "test_api_git"]
+	path = test_api_git
+	url = git@github.com:Forgetyk/test_api_git.git
+[submodule "environment/test_api_git"]
+	path = environment/test_api_git
+	url = git@github.com:Forgetyk/test_api_git.git

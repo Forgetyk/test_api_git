@@ -53,7 +53,8 @@ def init():
 
 def lint():
     for playbook in playbooks.keys():
-        subprocess.Popen(["ansible-lint", playbook, "-p", "--nocolor", "|", "ansible-lint-junit", "-o", "ansible-lint.xml"])
+        subprocess.Popen(["ansible-lint", playbook, "-p", "--nocolor", "|"
+                             , "ansible-lint-junit", "-o", "ansible-lint.xml"])
 
 
 def check():
