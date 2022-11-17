@@ -75,8 +75,7 @@ if __name__ == '__main__':
     if len(list_changed) == 0:
         print("no modified files found")
         sys.exit(1)
-    if sys.argv[1] == "--init":
-        init()
+    init()
     if sys.argv[1] == "--lint":
         lint()
     if sys.argv[1] == "--check":
