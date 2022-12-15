@@ -1,5 +1,5 @@
 ---
-- name: test
+- name: test2
   hosts: ab
   become: yes
   roles:
